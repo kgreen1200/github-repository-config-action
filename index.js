@@ -13,11 +13,10 @@ async function run() {
         const config = JSON.parse(fs.readFileSync('.github/config.json', 'utf8'))
 
         if (!Object.hasOwnProperty.call(config, 'description')) {
-            const description = config.description;
-        } else {
-            const description = "";
+            config.description = ""
         }
 
+        const description = config.description
         const enableDiscussions = config.enable_discussions
         const enableDownloads = config.enable_downloads
         const enableForks = config.enable_forks
