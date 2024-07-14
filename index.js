@@ -36,7 +36,7 @@ async function run() {
         core.info(`"data", ${typeof response.data === "object" ? JSON.stringify(response.data, null, 2) : response.data}`);
 
         core.info("Setting repository topics")
-        response = await octokit.request('PUT /repos/${repository}/topics', {
+        response = await octokit.request(`PUT /repos/${repository}/topics`, {
             "names": topics
         })
     } catch (error) {
