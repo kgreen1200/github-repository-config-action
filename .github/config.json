@@ -1,0 +1,8 @@
+{
+    "description": "A short project description",
+    "issues": true,
+    "projects": true,
+    "wiki": false,
+    "template": false,
+    "default_branch": "main",
+}
