@@ -7,8 +7,8 @@ const { Octokit } = require('@octokit/core');
 async function run() {
     try {
         const repository = process.env.GITHUB_REPOSITORY
-        const auth_token = core.getInput('repo-token')
-        const octokit = new Octokit({ auth: auth_token })
+        const authToken = core.getInput('repo-token')
+        const octokit = new Octokit({ "auth": authToken })
 
         const config = JSON.parse(fs.readFileSync('.github/config.json', 'utf8'))
         const description = config.description
@@ -21,7 +21,10 @@ async function run() {
         core.info("Ready to patch ${github_repository}")
 
         // From https://docs.github.com/en/rest/repos/repos#update-a-repository
-        const response = await octokit.request(`PATCH /repos/${repository}`, { description: description, has_wiki: enableWiki })
+        const response = await octokit.request(`PATCH /repos/${repository}`, {
+            "description": description,
+            "has_wiki": enableWiki
+        })
         core.info(`"status", ${response.status}`);
         core.info(`"headers", ${JSON.stringify(response.headers, null, 2)}`);
         core.info(`"data", ${typeof response.data === "object" ? JSON.stringify(response.data, null, 2) : response.data}`);
