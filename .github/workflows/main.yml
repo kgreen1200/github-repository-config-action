@@ -5,6 +5,7 @@ jobs:
     runs-on: ubuntu-latest
     name: Configure Repo
     steps:
+      - uses: actions/checkout@v3
       - name: Hello world action step
         uses: kgreen1200/github-repository-config-action@main
         with:
