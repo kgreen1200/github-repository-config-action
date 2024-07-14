@@ -4,5 +4,5 @@
     "enable_forks": true,
     "enable_issues": true,
     "enable_wiki": true,
-    "topics": [ "test", "test2", "hello-world" ],
+    "topics": [ "test", "test2", "hello-world" ]
 }
