@@ -22,8 +22,9 @@ async function run() {
         const enableForks = config.enable_forks
         const enableIssues = config.enable_issues
         const enableWiki = config.wiki
+        const topics = config.topics
 
-        core.info("Ready to patch ${github_repository}")
+        core.info("Ready to configure ${github_repository}")
 
         // From https://docs.github.com/en/rest/repos/repos#update-a-repository
         const response = await octokit.request(`PATCH /repos/${repository}`, {
@@ -33,6 +34,11 @@ async function run() {
         core.info(`"status", ${response.status}`);
         core.info(`"headers", ${JSON.stringify(response.headers, null, 2)}`);
         core.info(`"data", ${typeof response.data === "object" ? JSON.stringify(response.data, null, 2) : response.data}`);
+
+        core.info("Setting repository topics")
+        response = await octokit.request('PUT /repos/${repository}/topics', {
+            "names": topics
+        })
     } catch (error) {
         core.setFailed(error.message);
     }

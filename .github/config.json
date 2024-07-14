@@ -3,5 +3,6 @@
     "enable_downloads": true,
     "enable_forks": true,
     "enable_issues": true,
-    "enable_wiki": true
+    "enable_wiki": true,
+    "topics": [ "test", "test2", "hello-world" ],
 }
