@@ -27,7 +27,7 @@ async function run() {
         core.info("Ready to configure ${github_repository}")
 
         // From https://docs.github.com/en/rest/repos/repos#update-a-repository
-        const response = await octokit.request(`PATCH /repos/${repository}`, {
+        let response = await octokit.request(`PATCH /repos/${repository}`, {
             "description": description,
             "has_wiki": enableWiki
         })
