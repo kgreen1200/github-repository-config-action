@@ -11,12 +11,18 @@ async function run() {
         const octokit = new Octokit({ "auth": authToken })
 
         const config = JSON.parse(fs.readFileSync('.github/config.json', 'utf8'))
-        const description = config.description
-        const enableIssues = config.issues
-        const enableProjects = config.projects
+
+        if (!Object.hasOwnProperty.call(config, 'description')) {
+            const description = config.description;
+        } else {
+            const description = "";
+        }
+
+        const enableDiscussions = config.enable_discussions
+        const enableDownloads = config.enable_downloads
+        const enableForks = config.enable_forks
+        const enableIssues = config.enable_issues
         const enableWiki = config.wiki
-        const enableTemplate = config.template
-        const defaultBranch = config.default_branch
 
         core.info("Ready to patch ${github_repository}")
 

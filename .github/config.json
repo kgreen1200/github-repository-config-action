@@ -1,8 +1,7 @@
 {
-    "description": "A short project description",
-    "issues": true,
-    "projects": true,
-    "wiki": false,
-    "template": false,
-    "default_branch": "main"
+    "enable_discussions": true,
+    "enable_downloads": true,
+    "enable_forks": true,
+    "enable_issues": true,
+    "enable_wiki": true
 }
